@@ -24,6 +24,18 @@ function toggleBlocks() {
   }
   
 }
+
+function reset(e) {
+  e.preventDefault();
+  const copyTracker = [...tracker]
+  copyTracker.map(track => {
+    track.num = 0;
+    return copyTracker
+  })
+  setTracker(copyTracker)
+ 
+}
+
   useEffect(() => {
     const storedNum = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
     if(storedNum) setTracker(storedNum)
@@ -44,6 +56,7 @@ function toggleBlocks() {
     }
     </div>
 <button ref={showButton} className="show-button" onClick={toggleBlocks}>Show more</button>
+<button className="reset-button" onClick={reset}>Reset </button>
     </div>
   );
 }

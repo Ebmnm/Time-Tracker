@@ -29,6 +29,16 @@
   left: 5%; 
 
 }
+/* make div for buttons */
+.reset-button{
+  color:white;
+  background-color: hsl(235, 46%, 20%);;
+  border: 1px white solid;
+  position: absolute;
+  width:min-content;
+  bottom:82%;
+  left: 11%; 
+}
 
 .title{
   font-size: 3em;

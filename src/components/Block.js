@@ -5,29 +5,37 @@ const nameRef = useRef()
 
     function addOne(e) {
         e.preventDefault();
-        const currentTracker = tracker.filter(track => track.id === index)
-        console.log(currentTracker[0])
-        setTracker(prev => {                    
-            return [...prev, currentTracker[0].num +=1]
-        })
-        
-     
+      const copyTracker = [...tracker]
+      const copy = {...copyTracker[index]}
+        copy.num = copy.num + 1
+        copyTracker[index] = copy 
+        setTracker(copyTracker)
+
     }
-    
+   
     function saveName(e) {
    e.preventDefault();
-        const currentTracker = tracker.filter(track => track.id === index)
+   const copyTracker = [...tracker]
+   const copy = {...copyTracker[index]}
+     copy.name = nameRef.current.value
+     copyTracker[index] = copy 
+     setTracker(copyTracker)
+
+       /*
+       Wrong because it saves the number as a new state 
+       const currentTracker = tracker.filter(track => track.id === index)
         setTracker(prev => {
             return [...prev, currentTracker[0].name = nameRef.current.value]
-        })
+        }) */
     }
 
     function takeOne(e) {
         e.preventDefault();
-        const currentTracker = tracker.filter(track => track.id === index)
-        setTracker(prev => {
-            return [...prev, currentTracker[0].num -=1]
-        })
+        const copyTracker = [...tracker]
+        const copy = {...copyTracker[index]}
+          copy.num = copy.num - 1
+          copyTracker[index] = copy 
+          setTracker(copyTracker)
     }
 
     return (
