@@ -44,3 +44,23 @@
   font-size: 3em;
   padding-top: 30px;
 }
+
+.week-button{
+  color:white;
+  background-color: hsl(235, 46%, 20%);;
+  border: 1px white solid;
+  position: absolute;
+  width:min-content;
+  bottom:88%;
+  left: 5%; 
+}
+
+.reset-week-button{
+  color:white;
+  background-color: hsl(235, 46%, 20%);;
+  border: 1px white solid;
+  position: absolute;
+  width:min-content;
+  bottom:88%;
+  left: 11%; 
+}

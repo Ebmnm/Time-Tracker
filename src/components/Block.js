@@ -19,7 +19,7 @@ const nameRef = useRef()
    const copy = {...copyTracker[index]}
      copy.name = nameRef.current.value
      copyTracker[index] = copy 
-     setTracker(copyTracker)
+     setTracker(copyTracker) 
 
        /*
        Wrong because it saves the number as a new state 
@@ -47,6 +47,7 @@ const nameRef = useRef()
             <button onClick={addOne}>+</button>
             <button onClick={takeOne}>-</button>
        </div>
+       <h4>Weekly total: {tracker[index].week} </h4>
         </div>
         </div>
     )

@@ -6,7 +6,7 @@
 
 .outter-block{ 
     width:200px;
-    height:200px; 
+    height:220px; 
     border-radius: 1em;
     
 }
@@ -45,7 +45,7 @@ background-color: hsl(15, 100%, 70%);
     background-color: hsl(235, 46%, 20%);
     position: absolute;
     width:200px;
-    height:160px;
+    height:180px;
     margin-top: 40px;
     border-radius: 1em;
     padding:1em;
@@ -77,4 +77,9 @@ input::placeholder{
     font-size: 1.3em;
 border:1px solid grey;
 cursor: pointer;
+}
+
+h4{
+    display: block;
+    text-align: left;;
 }

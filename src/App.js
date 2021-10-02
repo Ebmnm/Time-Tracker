@@ -4,12 +4,13 @@ import Block from "./components/Block.js"
 const LOCAL_STORAGE_KEY = "timeTracker.num"
 
 function App() {
-const [tracker, setTracker] = useState([{num:0,id:0,name:""}
-,{num:0,id:1,name:""}
-,{num:0,id:2,name:""}
-,{num:0,id:3,name:""}
-,{num:0,id:4,name:""}
-,{num:0,id:5,name:""}])
+const [tracker, setTracker] = useState([
+  {num:0,id:0,name:"", week:0}
+,{num:0,id:1,name:"",week: 0}
+,{num:0,id:2,name:"",week:0}
+,{num:0,id:3,name:"",week:0}
+,{num:0,id:4,name:"",week:0}
+,{num:0,id:5,name:"",week:0}])
 const [blocks, setBlocks] = useState([3,3,3])
 const showButton = useRef()
 
@@ -22,7 +23,6 @@ function toggleBlocks() {
     setBlocks([3,3,3])
     showButton.current.innerText = "Show more"
   }
-  
 }
 
 function reset(e) {
@@ -33,7 +33,28 @@ function reset(e) {
     return copyTracker
   })
   setTracker(copyTracker)
- 
+}
+
+function resetWeek(e) {
+  e.preventDefault();
+  const copyTracker = [...tracker]
+  copyTracker.map(track => {
+    track.week = 0
+    return copyTracker
+  })
+   
+  setTracker(copyTracker)
+}
+
+function addWeek(e) {
+  e.preventDefault();
+  const copyTracker = [...tracker]
+  copyTracker.map(track => {
+    track.week += track.num
+    return copyTracker
+  })
+  reset(e)
+  setTracker(copyTracker)
 }
 
   useEffect(() => {
@@ -42,7 +63,7 @@ function reset(e) {
     }, [])
     
         useEffect(() => {
-            localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(tracker))
+            localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(tracker, true))
         }, [tracker])
 
   return (
@@ -57,6 +78,8 @@ function reset(e) {
     </div>
 <button ref={showButton} className="show-button" onClick={toggleBlocks}>Show more</button>
 <button className="reset-button" onClick={reset}>Reset </button>
+<button onClick={addWeek} className="week-button">Add to weekly total</button>
+<button onClick={resetWeek} className="reset-week-button">Reset week</button>
     </div>
   );
 }
